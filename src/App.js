@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import CreateBlogForm from "./Pages/CreateBlogForm";
+import SingleBlog from "./Pages/SingleBlog";
 
 const urlEndpoint = "http://localhost:4000";
 
@@ -31,40 +33,16 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+     
+    <CreateBlogForm urlEndpoint={urlEndpoint}/>
+        <SingleBlog id={id} setId={setId} blogs={blogs} blog={blog} />
+
         <h1>{blog.title}</h1>
         <h3>{blog.author}</h3>
         <p>{blog.text}</p>
-
-        {/* {blogs.map((blog, index)=>{
-    return <div key={index}>
-      <h1>{blog.title}</h1>
-      <p>{blog.id}</p>
-     
       
-    </div>
-  })} */}
-        <label>Enter id number</label>
-        <input
-          type="text"
-          onChange={(e) => {
-            setId(e.target.value);
-          }}
-        ></input>
-
-        <br />
-        
-        <select
-          onChange={(e) => {
-            // onChange handler will set the id variable using setID
-            setId(e.target.value);
-          }}
-        >
-          <option>Please choose an id number</option>
-          {blogs.map((blog, index) => {
-            // mapping to each blog from blogs array
-            return <option key={index}>{blog.id}</option>;
-          })}
-        </select>
+        <br/>
+        <br/>
       </header>
     </div>
   );
