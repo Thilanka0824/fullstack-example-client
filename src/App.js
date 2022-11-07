@@ -10,7 +10,7 @@ const urlEndpoint = "http://localhost:4000"
 
 function App() {
   const [blogs, setBlogs] = useState([]);
-  const [id, setId] = useState("976604e5-b10f-47fb-9191-dcb23df24277");
+  const [id, setId] = useState("d43b7be3-6c8d-48c9-a596-6aa07572669e");
   const [blog, setBlog] = useState({});
   const [shouldRefetch, setShouldRefetch] = useState(false)
 
@@ -29,6 +29,7 @@ function App() {
     const findBlog = async () => {
       const result = await fetch(`${urlEndpoint}/blogs/get-one/${id}`);
       const foundBlog = await result.json();
+      console.log(foundBlog);
       setBlog(foundBlog.post);
     };
     findBlog();
@@ -39,16 +40,21 @@ function App() {
       <header className="App-header">
         {/* <Scratch/> */}
         <h2>{shouldRefetch && "Please wait, we are refetching the data"}</h2>
-       
-        
+
+
         <CreateBlogForm urlEndpoint={urlEndpoint} setShouldRefetch={setShouldRefetch} />
         <UpdateBlogForm urlEndpoint={urlEndpoint} blogs={blogs} setShouldRefetch={setShouldRefetch} />
-       
+
         <SingleBlog id={id} setId={setId} blogs={blogs} blog={blog} />
         <DeleteBlogPage urlEndpoint={urlEndpoint} id={id} setId={setId} blogs={blogs} />
-        <h1>{blog.title}</h1>
-        <h3>{blog.author}</h3>
-        <p>{blog.text}</p>
+
+        {blog !== null && 
+        <div>
+          <h1>{blog.title}</h1>
+          <h3>{blog.author}</h3>
+          <p>{blog.text}</p>
+        </div>}
+
 
         <br />
         <br />
