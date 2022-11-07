@@ -1,3 +1,15 @@
+* {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* div {
+  border: 1px solid white;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 20px;
+} */
+
+
 .App {
   text-align: center;
 }
@@ -21,5 +33,16 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.component {
+  color: var(--bs-gray-800);
+  background-color: var(--bs-gray-100);
+  border: 1px solid var(--bs-gray-200);
+  border-radius: .25rem;
+}
+
+.component-header {
+  color: var(--bs-purple);
 }
 

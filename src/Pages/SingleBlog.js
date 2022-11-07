@@ -4,7 +4,9 @@ const SingleBlog = ({id, setId, blogs, blog}) => {
    //const {id, setId, blogs, blog} = props
   return (
     <div>
-      <label>Enter id number</label>
+      <h1>Get One Blog</h1>
+      <br/>
+      <label>Enter id number: </label>
       <input
         value={id}
         type="text"
@@ -12,7 +14,7 @@ const SingleBlog = ({id, setId, blogs, blog}) => {
           setId(e.target.value);
         }}
       ></input>
-      <br />
+      
       <button>Get</button>
 
       <br />
